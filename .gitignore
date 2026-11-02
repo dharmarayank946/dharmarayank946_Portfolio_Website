@@ -1,0 +1,6 @@
+# Temporary test and local server files
+server.js
+test_verification.js
+*.log
+.DS_Store
+Thumbs.db
