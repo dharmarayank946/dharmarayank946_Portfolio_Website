@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Report — Personal Portfolio & Web Engineering Showcase</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-page: #FBF9F5;
+            --bg-card: #FFFFFF;
+            --bg-card-alt: #F4EFEA;
+            --text-primary: #1C1E1D;
+            --text-secondary: #454C47;
+            --text-muted: #6F7872;
+            --color-primary: #1E3A34;
+            --color-primary-soft: #EAF1EE;
+            --color-accent: #C86D51;
+            --color-accent-soft: #FDF2EE;
+            --color-emerald: #3D6E60;
+            --color-emerald-soft: #EDF4F1;
+            --border-subtle: #E8E2D8;
+            --border-medium: #D7CEC0;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-serif: 'Newsreader', Georgia, serif;
+            --font-mono: 'JetBrains Mono', Consolas, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-secondary);
+            background-color: var(--bg-page);
+            line-height: 1.7;
+            padding: 2.5rem 1.5rem;
+        }
+
+        .paper-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 4rem 3.5rem;
+            box-shadow: 0 10px 30px rgba(28, 30, 29, 0.05);
+        }
+
+        /* Cover Page Styling */
+        .cover-page {
+            text-align: center;
+            padding-bottom: 3.5rem;
+            border-bottom: 2px solid var(--border-subtle);
+            margin-bottom: 3.5rem;
+        }
+
+        .cover-university {
+            font-size: 1.125rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .cover-department {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 2.5rem;
+        }
+
+        .report-badge {
+            display: inline-block;
+            font-size: 0.8125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-accent);
+            background: var(--color-accent-soft);
+            padding: 5px 16px;
+            border-radius: 9999px;
+            margin-bottom: 1.5rem;
+        }
+
+        .cover-title {
+            font-family: var(--font-serif);
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.25rem;
+        }
+
+        .cover-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto 3rem auto;
+            line-height: 1.6;
+        }
+
+        .candidate-card {
+            background-color: var(--bg-card-alt);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 1.75rem 2rem;
+            max-width: 540px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .candidate-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 0.9375rem;
+            border-bottom: 1px dashed var(--border-medium);
+        }
+
+        .candidate-row:last-child {
+            border-bottom: none;
+        }
+
+        .c-label {
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .c-val {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Section Formatting */
+        .section-header-block {
+            margin: 3rem 0 1.25rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .section-num {
+            font-size: 0.875rem;
+            font-weight: 800;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin: 1.75rem 0 0.5rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0 2rem 0;
+            font-size: 0.9375rem;
+        }
+
+        th, td {
+            padding: 12px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        th {
+            background-color: var(--bg-card-alt);
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-status {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+        }
+
+        .status-ongoing {
+            background-color: #FBF4E8;
+            color: #B87B2E;
+            border: 1px solid #EED6B0;
+        }
+
+        .status-completed {
+            background-color: var(--color-emerald-soft);
+            color: var(--color-emerald);
+            border: 1px solid var(--color-emerald-border);
+        }
+
+        .status-pass {
+            background-color: var(--color-emerald-soft);
+            color: var(--color-emerald);
+            border: 1px solid var(--color-emerald-border);
+        }
+
+        .code-box {
+            background: #1C1E1D;
+            color: #EAF1EE;
+            font-family: var(--font-mono);
+            font-size: 0.8125rem;
+            padding: 1.25rem;
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            margin: 1.25rem 0;
+            line-height: 1.55;
+        }
+
+        ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+            color: var(--text-secondary);
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--color-primary);
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 0.9375rem;
+            padding: 12px 22px;
+            border-radius: 9999px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 18px rgba(30, 58, 52, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1000;
+            transition: all 0.2s ease;
+        }
+
+        .print-btn:hover {
+            background: #142723;
+            transform: translateY(-2px);
+        }
+
+        @media print {
+            body {
+                background: #FFFFFF;
+                padding: 0;
+            }
+            .paper-container {
+                border: none;
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+            .print-btn {
+                display: none;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="print-btn" onclick="window.print()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        <span>Print / Save as PDF</span>
+    </button>
+
+    <div class="paper-container">
+
+        <!-- Cover Header -->
+        <header class="cover-page">
+            <div class="cover-university">Sharanbasava University</div>
+            <div class="cover-department">Department of Computer Science &amp; Engineering</div>
+            <span class="report-badge">Engineering Project Report</span>
+            <h1 class="cover-title">Personal Portfolio &amp; Web Engineering Showcase</h1>
+            <p class="cover-subtitle">
+                Comprehensive Technical Report on Modern Full-Stack Development, 100vh Responsive Ergonomics, Custom Vector Illustrations, and Quality Assurance Verification.
+            </p>
+
+            <div class="candidate-card">
+                <div class="candidate-row">
+                    <span class="c-label">Author / Candidate:</span>
+                    <span class="c-val">Nagalambika D Koralli</span>
+                </div>
+                <div class="candidate-row">
+                    <span class="c-label">Degree Program:</span>
+                    <span class="c-val">B.Tech Computer Science &amp; Engg</span>
+                </div>
+                <div class="candidate-row">
+                    <span class="c-label">Academic Status:</span>
+                    <span class="c-val">5th Semester • CGPA 9.62</span>
+                </div>
+                <div class="candidate-row">
+                    <span class="c-label">Project Repository:</span>
+                    <span class="c-val">dharmarayank946_Portfolio_Website</span>
+                </div>
+                <div class="candidate-row">
+                    <span class="c-label">Date of Submission:</span>
+                    <span class="c-val">November 2026</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Chapter 1 -->
+        <section>
+            <div class="section-header-block">
+                <h2>1. Executive Summary &amp; Abstract</h2>
+                <span class="section-num">Section 01</span>
+            </div>
+            <p>
+                This project report presents the architectural design, implementation, and quality assurance audit of a production-grade personal portfolio website developed for <strong>Nagalambika D Koralli</strong>. The solution highlights technical accomplishments, academic credentials, and practical software engineering capabilities.
+            </p>
+            <p>
+                Rather than utilizing off-the-shelf templates or heavyweight JavaScript frameworks, the website is engineered strictly using semantic <strong>HTML5, CSS3 Custom Properties, and modular Vanilla JavaScript</strong>. This architectural choice delivers lightning-fast load times, complete search-engine accessibility, and total visual customization.
+            </p>
+            <p>
+                Crucial design milestones include an ergonomic <strong>100vh full-screen desktop hero section</strong>, zero personal photographs, a custom-crafted SVG illustration for engineering milestones (<code>about-visual.svg</code>), a refined <strong>Warm Editorial Linen &amp; Forest Pine / Terracotta theme</strong>, and strict factual alignment with collegiate and internship records.
+            </p>
+        </section>
+
+        <!-- Chapter 2 -->
+        <section>
+            <div class="section-header-block">
+                <h2>2. System Architecture &amp; UI/UX Design System</h2>
+                <span class="section-num">Section 02</span>
+            </div>
+            <p>
+                The user interface is governed by a Warm Editorial design system that completely replaces standard cold blue-and-white palettes and high-contrast dark themes.
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Design Token</th>
+                        <th>Color Value</th>
+                        <th>Visual Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>--bg-page</code></td>
+                        <td>Warm Alabaster Linen (<code>#FBF9F5</code>)</td>
+                        <td>Organic, eye-friendly light page canvas</td>
+                    </tr>
+                    <tr>
+                        <td><code>--bg-card</code></td>
+                        <td>Crisp Studio White (<code>#FFFFFF</code>)</td>
+                        <td>Elevated card surfaces with subtle borders</td>
+                    </tr>
+                    <tr>
+                        <td><code>--color-primary</code></td>
+                        <td>Deep Forest Cypress / Pine (<code>#1E3A34</code>)</td>
+                        <td>Brand anchor, navigation links, primary action buttons</td>
+                    </tr>
+                    <tr>
+                        <td><code>--color-accent</code></td>
+                        <td>Warm Terracotta Rust (<code>#C86D51</code>)</td>
+                        <td>Interactive highlights, focus states, and badges</td>
+                    </tr>
+                    <tr>
+                        <td><code>--text-primary</code></td>
+                        <td>Deep Espresso Charcoal (<code>#1C1E1D</code>)</td>
+                        <td>High-contrast headline and body typography</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Hero Section Viewport Ergonomics</h3>
+            <p>
+                The desktop hero section is engineered to take exactly <code>min-height: calc(100vh - var(--nav-height))</code> with centered flex alignment. Visitors on laptops and desktops see the complete introduction, live status indicator, primary action buttons (<strong>"Featured Projects"</strong> and <strong>"About Me"</strong>), and a 3-card architectural showcase deck without scrolling.
+            </p>
+        </section>
+
+        <!-- Chapter 3 -->
+        <section class="page-break">
+            <div class="section-header-block">
+                <h2>3. Five Verified Industry Internships</h2>
+                <span class="section-num">Section 03</span>
+            </div>
+            <p>
+                The portfolio organizes professional experience into two clearly separated categories: <strong>Ongoing Internship</strong> and <strong>Completed Internships</strong>. No dates or durations were invented where unprovided.
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Organization</th>
+                        <th>Assigned Role</th>
+                        <th>Duration / Dates</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>VEDA Technology</strong></td>
+                        <td>Web Development Intern</td>
+                        <td>45 days • Start Date: 1 October 2026</td>
+                        <td><span class="badge-status status-ongoing">Ongoing</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Next Gen Software Hub</strong></td>
+                        <td>Python Development Intern</td>
+                        <td>Verified Completed Program</td>
+                        <td><span class="badge-status status-completed">Completed</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>SYNTECXHUB</strong></td>
+                        <td>Frontend Development Intern</td>
+                        <td>Verified Completed Program</td>
+                        <td><span class="badge-status status-completed">Completed</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mastertej, Pune</strong></td>
+                        <td>Web Development &amp; AI Intern</td>
+                        <td>Verified Completed Program</td>
+                        <td><span class="badge-status status-completed">Completed</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>ElevanceSkills</strong></td>
+                        <td>Full Stack Web Development Intern</td>
+                        <td>Verified Completed Program</td>
+                        <td><span class="badge-status status-completed">Completed</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Chapter 4 -->
+        <section>
+            <div class="section-header-block">
+                <h2>4. Featured Projects &amp; Honors</h2>
+                <span class="section-num">Section 04</span>
+            </div>
+            <ul>
+                <li><strong>Gov Sahayak:</strong> Centralized citizen grievance assistance portal hosted live on Vercel. Strictly isolated from unrelated repositories.</li>
+                <li><strong>IssueFlow:</strong> Collaborative task management and civic issue resolution platform built with Node.js and MongoDB.</li>
+                <li><strong>VoiceStudy AI:</strong> Voice-first accessible AI study assistant built with FastAPI, React, and Qdrant. Awarded <strong>3rd Place</strong> at the AI House × HiDevs Solo Agents Hackathon.</li>
+                <li><strong>PhishGuard:</strong> Intelligent machine learning phishing detection system deployed live on Vercel.</li>
+                <li><strong>JDP Restaurant:</strong> Modern responsive restaurant web application with interactive UI menus.</li>
+                <li><strong>Competitive Awards:</strong> <strong>1st Prize in Bug Hunt</strong> (Jnanothsava-2026, Sharanbasava University).</li>
+            </ul>
+        </section>
+
+        <!-- Chapter 5 -->
+        <section>
+            <div class="section-header-block">
+                <h2>5. Quality Assurance &amp; Automated Testing</h2>
+                <span class="section-num">Section 05</span>
+            </div>
+            <p>
+                The build was verified using an automated Node.js test harness (<code>test_verification.js</code>), confirming <strong>100% test pass rate across 7 suites</strong>:
+            </p>
+            <div class="code-box">LOCALSERVER:       [PASS] Root, Stylesheet, JS, SVG visual &amp; Favicon (HTTP 200)
+IMAGEVERIFICATION: [PASS] about-visual.svg &amp; favicon.svg (Zero personal photos)
+NAVIGATION:        [PASS] 9/9 Anchors, Mobile Drawer Toggle, Back-to-Top Button
+PROJECTFILTERS:    [PASS] 9/9 Project Cards Match Active Filter Data Attributes
+CONTACTFORM:       [PASS] Inputs, Error Labels, Mailto Builder, Phone Number Privacy
+RESPONSIVELAYOUT:  [PASS] 4 Breakpoints (&lt;=400px, &lt;=640px, &lt;=868px, &lt;=1024px)
+CONSOLESYNTAX:     [PASS] Vanilla JS Compiles with Zero Syntax Errors</div>
+        </section>
+
+        <!-- Chapter 6 -->
+        <section>
+            <div class="section-header-block">
+                <h2>6. Deployment &amp; Conclusion</h2>
+                <span class="section-num">Section 06</span>
+            </div>
+            <p>
+                The complete codebase and documentation are published on GitHub:
+                <br>
+                <strong>URL:</strong> <a href="https://github.com/dharmarayank946/dharmarayank946_Portfolio_Website" style="color: var(--color-primary); font-weight: 700;">https://github.com/dharmarayank946/dharmarayank946_Portfolio_Website</a>
+                <br>
+                <strong>Branch:</strong> <code>main</code>
+            </p>
+            <p>
+                The Personal Portfolio Website for <strong>Nagalambika D Koralli</strong> demonstrates a balanced synthesis of full-stack engineering proficiency and human-centered design.
+            </p>
+        </section>
+
+    </div>
+
+</body>
+</html>
